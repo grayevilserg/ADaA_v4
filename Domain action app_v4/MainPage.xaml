@@ -74,7 +74,7 @@
                 <TextBlock Name="ItemsValue" Text="10" RelativePanel.RightOf="ItemsTextBlock" Margin="5,5,0,5" />
 
                 <TextBlock  Text="ADaA Version:" RelativePanel.LeftOf="VersionTextBlock" Margin="0,5,5,5" />
-                <TextBlock Name="VersionTextBlock" Text="0.0.3"  RelativePanel.AlignRightWithPanel="True" Margin="0,5,10,5" />
+                <TextBlock Name="VersionTextBlock" Text="0.0.4"  RelativePanel.AlignRightWithPanel="True" Margin="0,5,10,5" />
 
                 <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
                     <TextBlock Text="User:" Margin="0,5,5,5" />

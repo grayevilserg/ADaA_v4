@@ -26,5 +26,15 @@ namespace Domain_action_app_v4.Materials.Additional_Pages
         {
             this.InitializeComponent();
         }
+
+        private void GroupsPage_loaded(object sender, RoutedEventArgs e)
+        {
+            GrRing.IsActive = true;
+            GrRing.Visibility = Visibility.Visible;
+
+
+            /*MyRing.IsActive = false;
+            MyRing.Visibility = Visibility.Collapsed;*/
+        }
     }
 }

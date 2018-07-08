@@ -24,7 +24,7 @@
 
             <!--AutoSuggestBox-->
             <TextBox Name="SearchTextBox" PlaceholderText="Search" 
-                     Style="{StaticResource TBoxStyle}"                     
+                     Style="{StaticResource AllTBoxStyle}"                     
                      RelativePanel.AlignLeftWithPanel="True"
                      Width="100" FontSize="18"/>
 
@@ -41,7 +41,7 @@
                     FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36"/>
 
             <TextBox Name="PasswordTextBox" PlaceholderText="Set password here" 
-                     Style="{StaticResource TBoxStyle}"
+                     Style="{StaticResource AllTBoxStyle}"
                      RelativePanel.LeftOf="SetPasBut"
                      FontSize="18"/>
 
@@ -51,6 +51,25 @@
                     FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36"   />
         </RelativePanel>
 
+        <!--Main content-->
+        
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="UserName" Style="{StaticResource UserTBStyle}"/>
+                <TextBlock Name="CreattionDate" Style="{StaticResource UserTBStyle}"/>
+                <TextBlock Name="LastLogonDate" Style="{StaticResource UserTBStyle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="FirstName" Style="{StaticResource UserTBStyle}"/>
+                <TextBlock Name="LastName" Style="{StaticResource UserTBStyle}"/>
+                <TextBlock Name="Type" Style="{StaticResource UserTBStyle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="Phone" Style="{StaticResource UserTBStyle}"/>
+                <TextBlock Name="Email" Style="{StaticResource UserTBStyle}"/>
+                <TextBlock Name="CompanyDivision" Style="{StaticResource UserTBStyle}"/>
+            </StackPanel>
+        </StackPanel>
         <ProgressRing Name="UsRing" 
                       Width="100" Height="100"
                       Foreground="DarkGray"

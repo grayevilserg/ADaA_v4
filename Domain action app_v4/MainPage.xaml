@@ -11,7 +11,7 @@
         <SolidColorBrush x:Key="MyBrush" Color="DeepSkyBlue" />
     </Page.Resources>
 
-    <Grid>
+    <Grid MinWidth="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -31,7 +31,6 @@
                 <TextBlock Name="Title" 
                        Text="Users" 
                        FontFamily="Courier" FontSize="22" 
-                       
                        Margin="10,5,0,0" />
             </StackPanel>
         </RelativePanel>
@@ -39,9 +38,9 @@
         <!--Main menu on left side-->
 
         <SplitView Name="MenuView" Grid.Row="1" DisplayMode="CompactOverlay" 
-                   OpenPaneLength="150" CompactPaneLength="40" HorizontalAlignment="Left">
+                   OpenPaneLength="150" CompactPaneLength="40" HorizontalAlignment="Stretch">
             <SplitView.Pane>
-                <ListBox SelectionMode="Single" Name="ListBox_elements" SelectionChanged="IconsListBox_changed">
+                <ListBox SelectionMode="Single" Name="ListBox_elements" SelectionChanged="IconsListBox_changed" VerticalAlignment="Stretch">
                     <ListBoxItem Name="Users_item">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Courier New" Text="&#x0055;" Margin="5,0,0,0"/>
@@ -63,8 +62,9 @@
                 </ListBox>
             </SplitView.Pane>
 
+
             <SplitView.Content>
-                <Frame Name="MyFrame"/>
+                <Frame Name="MyFrame" MinWidth="4"/>
             </SplitView.Content>
         </SplitView>
 

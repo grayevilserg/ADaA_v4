@@ -9,11 +9,52 @@
     Loaded="UsersPage_loaded">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Action and search bar-->
+
+        <RelativePanel Name="Search" Grid.Row="0" >
+            <Button Name="SearchButton"  
+                    RelativePanel.RightOf="SearchTextBox" 
+                    Style="{StaticResource DoITButton}"
+                    FontSize="18"    />
+
+            <!--AutoSuggestBox-->
+            <TextBox Name="SearchTextBox" PlaceholderText="Search" 
+                     Style="{StaticResource TBoxStyle}"                     
+                     RelativePanel.AlignLeftWithPanel="True"
+                     Width="100" FontSize="18"/>
+
+            <!-- Margin="40,10,0,5" RelativePanel.RightOf="SearchButton"-->
+            <ToggleButton Name="UnlockButton" Content="Unlock account" 
+                          RelativePanel.AlignHorizontalCenterWithPanel="True"
+                          RelativePanel.AlignVerticalCenterWithPanel="True"
+                          
+                          FontSize="18"/>
+
+            <Button Name="RandPassBut" Content="&#xEC58;" 
+                    Style="{StaticResource OtherButton}"
+                    RelativePanel.LeftOf="PasswordTextBox"   
+                    FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36"/>
+
+            <TextBox Name="PasswordTextBox" PlaceholderText="Set password here" 
+                     Style="{StaticResource TBoxStyle}"
+                     RelativePanel.LeftOf="SetPasBut"
+                     FontSize="18"/>
+
+            <Button Name="SetPasBut" Content="&#xE15E;" 
+                    Style="{StaticResource OtherButton}"
+                    RelativePanel.AlignRightWithPanel="True" 
+                    FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36"   />
+        </RelativePanel>
 
         <ProgressRing Name="UsRing" 
                       Width="100" Height="100"
                       Foreground="DarkGray"
-                      Grid.ColumnSpan="2" Grid.RowSpan="3"
+                      Grid.Row="1"
                       VerticalAlignment="Center" HorizontalAlignment="Center">
         </ProgressRing>
     </Grid>

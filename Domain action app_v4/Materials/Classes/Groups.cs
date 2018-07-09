@@ -8,6 +8,6 @@ namespace Domain_action_app_v4.Materials.Classes
 {
     public class Groups
     {
-        public string GroupName { get; }
+        public string GroupName { get; set; }
     }
 }

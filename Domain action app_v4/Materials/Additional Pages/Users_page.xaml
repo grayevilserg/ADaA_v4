@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:data="using:Domain_action_app_v4.Materials.Classes" 
     Loaded="UsersPage_loaded">
 
     <Grid>
@@ -53,23 +54,36 @@
 
         <!--Main content-->
         
-        <StackPanel Grid.Row="1">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Name="UserName" Style="{StaticResource UserTBStyle}"/>
-                <TextBlock Name="CreattionDate" Style="{StaticResource UserTBStyle}"/>
-                <TextBlock Name="LastLogonDate" Style="{StaticResource UserTBStyle}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Name="FirstName" Style="{StaticResource UserTBStyle}"/>
-                <TextBlock Name="LastName" Style="{StaticResource UserTBStyle}"/>
-                <TextBlock Name="Type" Style="{StaticResource UserTBStyle}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Name="Phone" Style="{StaticResource UserTBStyle}"/>
-                <TextBlock Name="Email" Style="{StaticResource UserTBStyle}"/>
-                <TextBlock Name="CompanyDivision" Style="{StaticResource UserTBStyle}"/>
-            </StackPanel>
-        </StackPanel>
+        <GridView Grid.Row="1" Name="MainContentGV"
+                  ItemsSource="{x:Bind UserPropertys}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:User">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="UserName" Text="{x:Bind UserName}" 
+                                       Style="{StaticResource UserTBStyle}"/>
+                            <TextBlock Name="CreationDate" Text="{x:Bind CreationDate}"
+                                       Style="{StaticResource UserTBStyle}"/>
+                            <!--<TextBlock Name="LastLogonDate" Style="{StaticResource UserTBStyle}"/>-->
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="FirstName" Text="{x:Bind FirstName}" 
+                                       Style="{StaticResource UserTBStyle}"/>
+                            <TextBlock Name="LastName" Text="{x:Bind LastName}" 
+                                       Style="{StaticResource UserTBStyle}"/>
+                            <!--<TextBlock Name="Type" Style="{StaticResource UserTBStyle}"/>-->
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="Email" Text="{x:Bind Email}"
+                                       Style="{StaticResource UserTBStyle}"/>
+                            <!--<TextBlock Name="Phone" Style="{StaticResource UserTBStyle}"/>
+                <TextBlock Name="CompanyDivision" Style="{StaticResource UserTBStyle}"/>-->
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            
+        </GridView>
         <ProgressRing Name="UsRing" 
                       Width="100" Height="100"
                       Foreground="DarkGray"

@@ -21,7 +21,7 @@
             <Button Name="SearchButton"  
                     RelativePanel.RightOf="SearchTextBox" 
                     Style="{StaticResource DoITButton}"
-                    FontSize="18"    />
+                    FontSize="18" Click="SearchButton_Click"    />
 
             <!--AutoSuggestBox-->
             <TextBox Name="SearchTextBox" PlaceholderText="Search" 
@@ -77,18 +77,19 @@
                             <TextBlock Name="Email" Text="{x:Bind Email}"
                                        Style="{StaticResource UserTBStyle}"/>
                             <!--<TextBlock Name="Phone" Style="{StaticResource UserTBStyle}"/>
-                <TextBlock Name="CompanyDivision" Style="{StaticResource UserTBStyle}"/>-->
+                                <TextBlock Name="CompanyDivision" Style="{StaticResource UserTBStyle}"/>-->
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
             
         </GridView>
-        <ProgressRing Name="UsRing" 
+        <ProgressRing Name="LoadingRing" 
                       Width="100" Height="100"
                       Foreground="DarkGray"
                       Grid.Row="1"
                       VerticalAlignment="Center" HorizontalAlignment="Center">
         </ProgressRing>
+        
     </Grid>
 </Page>

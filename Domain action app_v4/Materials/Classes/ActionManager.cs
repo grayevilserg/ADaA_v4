@@ -51,9 +51,9 @@ namespace Domain_action_app_v4.Materials.Classes
             return found;
         }
 
-        public static ObservableCollection<User> GetUserInfo(bool found, string username)
+        public static ObservableCollection<User> GetUserInfo(string username, ObservableCollection<User> user_propertys)
         {
-            ObservableCollection<User> arrayresult = new ObservableCollection<User>();
+            //ObservableCollection<User> user_propertys = new ObservableCollection<User>();
             bool foundname = Exists(username);
             //pull request to domain controller
             if (foundname == true)
@@ -72,7 +72,7 @@ namespace Domain_action_app_v4.Materials.Classes
                     foreach (SearchResult searchresult in mysearchresult)
                     {
                         var entry = searchresult.GetDirectoryEntry();
-                        arrayresult.Add( new User
+                        user_propertys.Add( new User
                         {
                           UserName = entry.Properties["userPrincipalName"].Value.ToString(),
                           FirstName = entry.Properties["givenName"].Value.ToString(),
@@ -87,7 +87,7 @@ namespace Domain_action_app_v4.Materials.Classes
                 }
                 search.Dispose();
             }
-            return arrayresult;
+            return user_propertys;
         }
 
         public static ObservableCollection<Groups> GetGroups()

@@ -34,12 +34,27 @@ namespace Domain_action_app_v4.Materials.Additional_Pages
 
         private void UsersPage_loaded(object sender, RoutedEventArgs e)
         {
-            UsRing.IsActive = true;
-            UsRing.Visibility = Visibility.Visible;
+            
 
 
             /*MyRing.IsActive = false;
             MyRing.Visibility = Visibility.Collapsed;*/
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadingRing.IsActive = true;
+            LoadingRing.Visibility = Visibility.Visible;
+            if (SearchTextBox.Text != null)
+            {
+                var username = SearchTextBox.Text;
+                ActionManager.Exists(username);
+                ActionManager.GetUserInfo(username, UserPropertys);
+            }
+            //else ;
+            LoadingRing.IsActive = false;
+            LoadingRing.Visibility = Visibility.Collapsed;
+
         }
     }
 }

@@ -25,6 +25,7 @@ namespace Domain_action_app_v4.Materials.Additional_Pages
     public sealed partial class Users_page : Page
     {
         public ObservableCollection<User> UserPropertys { get; set; }
+        string username;
 
         public Users_page()
         {
@@ -34,9 +35,6 @@ namespace Domain_action_app_v4.Materials.Additional_Pages
 
         private void UsersPage_loaded(object sender, RoutedEventArgs e)
         {
-            
-
-
             /*MyRing.IsActive = false;
             MyRing.Visibility = Visibility.Collapsed;*/
         }
@@ -47,7 +45,7 @@ namespace Domain_action_app_v4.Materials.Additional_Pages
             LoadingRing.Visibility = Visibility.Visible;
             if (SearchTextBox.Text != null)
             {
-                var username = SearchTextBox.Text;
+                username = SearchTextBox.Text;
                 ActionManager.Exists(username);
                 ActionManager.GetUserInfo(username, UserPropertys);
             }
@@ -55,6 +53,17 @@ namespace Domain_action_app_v4.Materials.Additional_Pages
             LoadingRing.IsActive = false;
             LoadingRing.Visibility = Visibility.Collapsed;
 
+        }
+
+        private void SetPasBut_Click(object sender, RoutedEventArgs e)
+        {
+            string password = PasswordTextBox.Text;
+            ActionManager.ChangePassword(username, password);
+        }
+
+        private void RandPassBut_Click(object sender, RoutedEventArgs e)
+        {
+            PasswordTextBox.Text = ActionManager.RandPass();
         }
     }
 }

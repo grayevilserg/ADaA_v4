@@ -39,17 +39,17 @@
             <Button Name="RandPassBut" Content="&#xEC58;" 
                     Style="{StaticResource OtherButton}"
                     RelativePanel.LeftOf="PasswordTextBox"   
-                    FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36"/>
+                    FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36" Click="RandPassBut_Click"/>
 
             <TextBox Name="PasswordTextBox" PlaceholderText="Set password here" 
-                     Style="{StaticResource AllTBoxStyle}"
+                     Style="{StaticResource AllTBoxStyle}" MinWidth="166"
                      RelativePanel.LeftOf="SetPasBut"
                      FontSize="18"/>
 
             <Button Name="SetPasBut" Content="&#xE15E;" 
                     Style="{StaticResource OtherButton}"
                     RelativePanel.AlignRightWithPanel="True" 
-                    FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36"   />
+                    FontFamily="Segoe MDL2 Assets" FontSize="18" Height="36" Click="SetPasBut_Click"   />
         </RelativePanel>
 
         <!--Main content-->
@@ -60,21 +60,21 @@
                 <DataTemplate x:DataType="data:User">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="UserName" Text="{x:Bind UserName}" 
+                            <TextBlock Name="UserNameTextBlock" Text="{x:Bind UserName}" 
                                        Style="{StaticResource UserTBStyle}"/>
-                            <TextBlock Name="CreationDate" Text="{x:Bind CreationDate}"
+                            <TextBlock Name="CreationDateTextBlock" Text="{x:Bind CreationDate}"
                                        Style="{StaticResource UserTBStyle}"/>
                             <!--<TextBlock Name="LastLogonDate" Style="{StaticResource UserTBStyle}"/>-->
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="FirstName" Text="{x:Bind FirstName}" 
+                            <TextBlock Name="FirstNameTextBlock" Text="{x:Bind FirstName}" 
                                        Style="{StaticResource UserTBStyle}"/>
-                            <TextBlock Name="LastName" Text="{x:Bind LastName}" 
+                            <TextBlock Name="LastNameTextBlock" Text="{x:Bind LastName}" 
                                        Style="{StaticResource UserTBStyle}"/>
                             <!--<TextBlock Name="Type" Style="{StaticResource UserTBStyle}"/>-->
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Name="Email" Text="{x:Bind Email}"
+                            <TextBlock Name="EmailTextBlock" Text="{x:Bind Email}"
                                        Style="{StaticResource UserTBStyle}"/>
                             <!--<TextBlock Name="Phone" Style="{StaticResource UserTBStyle}"/>
                                 <TextBlock Name="CompanyDivision" Style="{StaticResource UserTBStyle}"/>-->

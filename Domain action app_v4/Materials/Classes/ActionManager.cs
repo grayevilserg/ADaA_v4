@@ -20,9 +20,9 @@ namespace Domain_action_app_v4.Materials.Classes
         public static string LDAP_connection = "emea.roche.com";
         public static string LDAP_path = "LDAP://OU=Users,OU=IT,OU=Moscow,OU=AdminUnits,DC=emea,DC=roche,DC=com";
 
+        // create ldap parametres
         public static DirectoryEntry createDirectoryEntry()
         {
-            // create ldap parametres
             DirectoryEntry ldapconnection = new DirectoryEntry(LDAP_connection);
             ldapconnection.Path = LDAP_path;
             ldapconnection.AuthenticationType = AuthenticationTypes.Secure;
@@ -51,9 +51,9 @@ namespace Domain_action_app_v4.Materials.Classes
             return found;
         }
 
+        // get user's information from AD and construct observable collection
         public static ObservableCollection<User> GetUserInfo(string username, ObservableCollection<User> user_propertys)
         {
-            //ObservableCollection<User> user_propertys = new ObservableCollection<User>();
             bool foundname = Exists(username);
             //pull request to domain controller
             if (foundname == true)
@@ -88,6 +88,43 @@ namespace Domain_action_app_v4.Materials.Classes
                 search.Dispose();
             }
             return user_propertys;
+        }
+
+        // reset/change user's password
+        public static void ChangePassword(string username, string password)
+        {
+            DirectoryEntry de = new DirectoryEntry(username);
+            de.Invoke("SetPassword", new object[] { password });
+            de.Properties["lockoutTime"].Value = 0;
+            de.Dispose();
+            de.Close();
+        }
+
+        public static string RandPass()
+        {
+            Random rand = new Random();
+            int count;
+            char[] randomword = new char[10];
+            string resultstring;
+
+            for (int i = 0; i < 10; i++)
+            {
+                count = Convert.ToInt32(rand.Next(0, 3));
+                switch (count)
+                {
+                    case 0:
+                        randomword[i] = (char)rand.Next(48, 58);
+                        break;
+                    case 1:
+                        randomword[i] = (char)rand.Next(65, 91);
+                        break;
+                    case 2:
+                        randomword[i] = (char)rand.Next(97, 123);
+                        break;
+                }
+            }
+            resultstring = new string(randomword);
+            return resultstring; 
         }
 
         public static ObservableCollection<Groups> GetGroups()
